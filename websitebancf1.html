@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-transform: capitalize;
+            transition: .2s linear;
+            margin-right: 0;
+        }
+        html{
+            overflow-x: hidden;
+            scroll-padding: 9rem;
+            scroll-behavior: smooth;
+        }
+        html::-webkit-scrollbar{
+            width: .8rem;
+        }
+        html::-webkit-scrollbar-track{
+            background: transparent;
+        }
+        .logo img{
+            width: 100px;
+            height: 80px;
+        }
+        
+        
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+        
+        .header{
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: fixed;
+            border-bottom: 0.5px solid rgb(202, 190, 166);
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .header .thanhnavbar a{
+            margin: 0 .5rem;
+            color:#fff;
+            text-decoration: none;
+            transition:ease-in;
+           
+        }
+        .header .thanhnavbar a:hover{
+            color: wheat;
+            border-bottom: .1rem solid wheat;
+            padding-bottom: .5rem;
+            transition: .2s;
+        }
+        .logo img{
+            transform: translate(-10px,0);
+        }
+        .header .icons div{
+            color: #fff;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        
+        .header .icons div:hover{
+            color: wheat;
+            transition: .2s;
+        }
+        #menu-btn{
+            display: none;
+        }
+        .header .hoptimkiem{
+            position: absolute;
+            top: 115%;
+            right: 7%;
+            background: #fff;
+            width: 50rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            transform: scaleY(0);
+            transform-origin: top;
+        }
+        .header .hoptimkiem.active{
+            transform: scaleY(1);
+        }
+        .header .hoptimkiem input{
+            height: 100%;
+            width: 100%;
+            font-size: 1.6rem;
+            padding: .5rem;
+            color: rgb(148, 142, 142);
+            text-transform: none;
+            border: none;
+        }
+        .header .hoptimkiem label{
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-right: .5rem;
+            color: rgb(155, 155, 155);
+            
+        }
+        .header .hoptimkiem label:hover{
+            color: wheat;
+            transition: .2s;
+        }
+        
+        @media (max-width:991px)
+        {
+            html{
+                font-size: 80%;
+            }
+            .header{
+                padding: 1.5rem 2rem;
+            }
+            section{
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width:768px)
+        {
+            
+            #menu-btn{
+                display: inline-block;
+            }
+
+            .header .thanhnavbar{
+                position: absolute;
+                top:100%; 
+                right: -100%;
+                background: #fff;
+                width: 15rem;
+                height: calc(100vh);
+            }
+            .header .thanhnavbar a{
+                color: rgb(37, 36, 36);
+                display: block;
+                margin: 1.5rem;
+                padding: .5rem;
+                font-size: 1.2rem;
+            }
+            .header .thanhnavbar.active{
+                right: 0;
+            }
+
+            
+            .header .hoptimkiem{
+                width: 90%;
+                height: 2rem;
+            }
+
+            .Trangchu{
+                background-position: left;
+                justify-content: center;
+                text-align: center;
+            }
+            .Trangchu .content h3{
+                font-size: 4.5rem;
+            }
+            .Trangchu .content p{
+                font-size: 1.5rem;
+            }
+
+          
+            .container .avarta{
+                transform: translate(12px,40px);
+                margin: auto;
+            }
+            
+            .container .khungdanhgia p{
+                transform: translate(-95px,40px);
+                font-size: 75%;
+            }
+            .container .khungdanhgia .star{
+                transform: translate(-1px,18px);
+            }
+            .container #ratings{
+                transform: translate(130px,40px);
+            }
+            
+        }
+
+        @media (max-width:450px)
+        {
+            html{
+                font-size: 50%;
+            }
+        }
+
+        .btn{
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: rgb(228, 202, 154);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover{
+            letter-spacing: .1rem;
+            transition: .2s;
+        }
+        .Trangchu{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url(banner.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        section{
+            padding: 3rem 7%;
+        }
+       
+
+        .Trangchu .content{
+            max-width: 60rem;
+        }
+
+        .Trangchu .content h3{
+            font-size: 4rem;
+            color: #fff;
+            text-transform: uppercase;
+            transform: translate(0,-3rem);
+        }
+        .Trangchu .content p{
+            font-size: 1.2rem;
+            color: #ffffffab;
+            line-height: 1.8;
+            font-weight: lighter;
+            transform: translate(0,-4.5rem);
+        }
+        .Trangchu .content .btn{
+            transform: translate(0,-3rem);
+        }
+        .heading{
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            padding-bottom: 3.6rem;
+            font-size: 3rem;
+            
+        }
+        .lycf{
+            width: 700px;
+            height: 500px;
+        }
+        
+        .heading span{
+            color: rgb(223, 194, 142);
+            text-transform: uppercase;
+            transition: 2s;
+
+        }
+        .Thongtin .row{
+            display: flex;
+            align-items: center;
+            background:rgb(15, 14, 22);
+            flex-wrap: wrap;
+        }
+        .Thongtin .row .hinh{
+           flex:  1 1 30rem;
+        }
+        .Thongtin .row .hinh img{
+            width: 100%;
+        }
+        .Thongtin .row .content{
+           flex:  1 1 50rem;
+           padding: 2rem;
+        }
+
+        .Thongtin .row .content h3{
+           font-size: 2.6rem;
+           color: #fff;
+           
+        }
+        .Thongtin .row .content p{
+           font-size: 1.4rem;
+           color: #ccc;
+           line-height: 1.2;    
+        }
+
+
+        .Menu .box-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+        }
+        
+        .Menu .box-container .box
+        {
+            padding:5rem;
+            text-align: center;
+            border: 1px solid rgb(39, 37, 53);
+            margin:10px 10px 10px 10px;
+            border-radius: 1rem;
+        }
+
+        .Menu .box-container .box img
+        {
+            height: 10rem;
+        }
+
+        .Menu .box-container .box h3{
+            color: #fff;
+            font-size: 1.6rem;
+            
+        }
+        .Menu .box-container .box .price{
+            color: #fff;
+            font-size: 1.6rem;
+            
+        }
+
+        .Menu .box-container .box .price span{
+            text-decoration: line-through;
+            font-size: 1.3rem;
+            
+        }
+        .Menu .box-container .box:hover
+        {
+            background: #fff;
+            transition: 0.3s;
+        }
+        .Menu .box-container .box:hover > *{
+            color: rgb(83, 82, 82);
+            transition: 0.3s;
+        }
+
+        div.containers {
+            width: 100%;  
+            margin: auto; 
+            height: 10rem;
+        }
+        /* định dạng thẻ div chưa các button tab */
+        div.tab {
+            overflow: hidden; 
+            border: 1px solid #ccc; 
+            background-color: #f1f1f1; 
+        }
+
+        /* định dạng các button tab */
+        div.tab button {
+            background-color: inherit; 
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* đổi màu khi một button tab được hover */
+        div.tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* đổi màu nền cho tab đang được hiển thị nội dung */
+        div.tab button.active {
+            background-color: #ccc;
+        }
+
+        /* định dạng nội dung hiển thị */
+        .tabcontent {
+            display: none;
+            padding: 2px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            margin-bottom: none;
+        }
+        .content{
+            transform: translate(0,-10.7em);
+        }
+        .Thongtin .row.content h3{
+            transform: translate(0,2rem);
+        }
+        .tabcontent h4{
+            color: #FFF;
+            font-size: 2rem;
+            transform: translate(0,-2rem);
+        }
+        .tabcontent p{
+            text-align: justify;
+            transform: translate(0,-4rem);
+        }
+        .tabcontent .btn{
+            transform: translate(0,-4rem);
+        }
+        
+        .footer{
+            background:rgb(15, 13, 20);
+            text-align: center;
+        }
+
+        .footer .share{
+            padding: 1rem 0;
+        }
+
+        .footer .share a{
+            height: 4rem;
+            width: 4rem;
+            line-height: 4rem;
+            font-size: 2rem;
+            border: 1px solid #ffffffab;
+            color: #fff;
+            text-decoration: none;
+            margin: .3rem;
+            border-radius: 30%;
+        }
+       
+        .footer .share a:hover{
+            background-color: rgb(223, 194, 142);
+            
+        }
+       
+    </style>
+
+
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">
+        <img src="pts_logocoffee.png">
+        </a>
+        <nav class="thanhnavbar">
+            <a href="#Trangchu">Trang chủ</a>
+            <a href="#Thongtin">Thông tin</a>
+            <a href="#Sanpham"> Sản phẩm</a>
+            <a href="#Menu">Menu</a>
+            <a href="#Gioithieu">Giới thiệu</a>
+            <a href="#Lienhe">Liên hệ</a>
+        </nav> 
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>   
+        <div class="hoptimkiem">
+            <input type="search" id="search-box" placeholder="Tìm kiếm">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+
+    </header>
+
+    <section class="Trangchu" id="Trangchu">
+        <div class="content">
+            <h3>Proudly Vietnamese coffee</h3>
+            <p>Vietnamese coffee has been recognized by UNESCO as an intangible cultural heritage 
+                of Robusta coffee variety grown and processed in the Central Highlands region of Vietnam.</p>
+                <a href="#" class="btn"> Đặt hàng ngay </a>
+        </div>
+
+    </section>
+
+    <section class="Thongtin" id="Thongtin"> 
+        <h1 class="heading"> <span>About</span> us </h1>
+        <div class="row">  
+            <div class="hinh">
+                <img src="about.jpg" alt="" class="lycf">
+            </div>
+            <div class="content">
+                <h3>What makes our coffee special?</h3>
+                     <div class="containers">        
+                <div class="tab">
+                    <button class="tablinks active">Chất lượng</button>
+                    <button class="tablinks">Sạch sẽ</button>
+                    <button class="tablinks">Thân thiện</button>
+                    
+                </div>
+      
+                <div id="Chất lượng" class="tabcontent">
+                    <h4>Tầm nhìn</h4>
+                    <p>Our coffee is special because we use only the highest quality beans, carefully selected and roasted to perfection. We also take pride in our unique brewing techniques, which bring out the full flavor and aroma of the coffee.
+                    Our commitment to sustainability and ethical sourcing means that we support local farmers and communities, and use environmentally friendly practices.
+                    All of these factors contribute to making our coffee a truly special and enjoyable experience for our customers.
+                    </p>
+                </div>
+      
+                <div id="Sạch sẽ" class="tabcontent">
+                    <h4>Sạch sẽ</h4>
+                    <p>All of these factors contribute to making our coffee a truly special and enjoyable experience for our customers.</p>
+                </div>
+      
+                <div id="Thân thiện" class="tabcontent">
+                    <h4>Thân thiện</h4>
+                    <p>
+                        CSS là chữ viết tắt của Cascading Style Sheets, nó là một ngôn ngữ được sử dụng để
+                        tìm và định dạng lại các phần tử được tạo ra bởi các ngôn ngữ đánh dấu (ví dụ như HTML).
+                    </p>
+                </div>
+            </div>
+            </div>
+              <script type="text/javascript">
+                var buttons = document.getElementsByClassName('tablinks');
+                var contents = document.getElementsByClassName('tabcontent');
+                function showContent(id){
+                    for (var i = 0; i < contents.length; i++) {
+                        contents[i].style.display = 'none';
+                    }
+                    var content = document.getElementById(id);
+                    content.style.display = 'block';
+                }
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener("click", function(){
+                        var id = this.textContent;
+                        for (var i = 0; i < buttons.length; i++) {
+                            buttons[i].classList.remove("active");
+                        }
+                        this.className += " active";
+                        showContent(id);
+                    });
+                }
+                showContent('Chất lượng');
+            </script>
+            </div>   
+            </div>
+        </div>
+    </section>
+
+    <section class="Menu" id="Menu">
+        <h1 class="heading">Sản phẩm <span> nổi bật</span> </h1>
+        <div class="box-container"> 
+            <div class="box">
+                <img src="menu1.png">
+                <h3>Tasty and healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+
+            <div class="box">
+                <img src="menu2.png">
+                <h3>Tasty And Healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+
+            <div class="box">
+                <img src="menu3.png">
+                <h3>Tasty And Healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+
+            <div class="box">
+                <img src="menu2.png">
+                <h3>Tasty And Healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+
+            <div class="box">
+                <img src="menu3.png">
+                <h3>Tasty And Healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+
+            <div class="box">
+                <img src="menu1.png">
+                <h3>Tasty And Healthy</h3>
+                <div class="price">$15.99 <span>20.99</span></div>
+                <a href="#" class="btn">Thêm sản phẩm</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="Gioithieu" id="Gioithieu">
+
+        <h1 class="heading">Đội ngũ <span>xây dựng</span></h1>
+
+
+        <div class="box-container"> </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+    </section>
+
+    <script>
+        let navbar = document.querySelector('.thanhnavbar');
+
+        document.querySelector('#menu-btn').onclick = () =>{
+            navbar.classList.toggle('active');
+        }
+
+        let thanhTimKiem = document.querySelector('.hoptimkiem')
+
+        document.querySelector('#search-btn').onclick = () =>{
+            thanhTimKiem.classList.toggle('active');
+        }
+    </script>
+
+
+
+</body>
+</html>

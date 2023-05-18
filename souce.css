@@ -1,0 +1,240 @@
+
+        *{box-sizing: border-box;}
+        .logo img{
+            width: 95px;
+            height: 75px;
+        }
+        
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+        .heading{
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            padding-bottom: .5rem;
+            font-size: 3rem;
+        }
+        .header{
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: fixed;
+            border-bottom: 0.5px solid rgb(202, 190, 166);
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .header .thanhnavbar a{
+            margin: 0 .5rem;
+            color:#fff;
+            text-decoration: none;
+            transition:ease-in;
+           
+        }
+        .header .thanhnavbar a:hover{
+            color: wheat;
+            border-bottom: .1rem solid wheat;
+            padding-bottom: .5rem;
+            transition: .2s;
+        }
+        .logo img{
+            transform: translate(-10px,0);
+        }
+        .header .icons div{
+            color: #fff;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        
+        .header .icons div:hover{
+            color: wheat;
+            transition: .2s;
+        }
+        #menu-btn{
+            display: none;
+        }
+        .header .hoptimkiem{
+            position: absolute;
+            top: 115%;
+            right: 7%;
+            background: #fff;
+            width: 50rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            transform: scaleY(0);
+            transform-origin: top;
+        }
+        .header .hoptimkiem.active{
+            transform: scaleY(1);
+        }
+        .header .hoptimkiem input{
+            height: 100%;
+            width: 100%;
+            font-size: 1.6rem;
+            padding: .5rem;
+            color: rgb(148, 142, 142);
+            text-transform: none;
+            border: none;
+        }
+        .header .hoptimkiem label{
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-right: .5rem;
+            color: rgb(155, 155, 155);
+            
+        }
+        .header .hoptimkiem label:hover{
+            color: wheat;
+            transition: .2s;
+        }
+        
+        @media (max-width:991px)
+        {
+            html{
+                font-size: 80%;
+            }
+            .header{
+                padding: 1.5rem 2rem;
+            }
+            section{
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width:768px)
+        {
+            
+            #menu-btn{
+                display: inline-block;
+            }
+
+            .header .thanhnavbar{
+                position: absolute;
+                top:100%; 
+                right: -100%;
+                background: #fff;
+                width: 15rem;
+                height: calc(100vh);
+            }
+            .header .thanhnavbar a{
+                color: rgb(37, 36, 36);
+                display: block;
+                margin: 1.5rem;
+                padding: .5rem;
+                font-size: 1.2rem;
+            }
+            .header .thanhnavbar.active{
+                right: 0;
+            }
+
+            
+            .header .hoptimkiem{
+                width: 90%;
+                height: 2rem;
+            }
+
+            .home{
+                background-position: left;
+                justify-content: center;
+                text-align: center;
+            }
+            .home .content h3{
+                font-size: 4.5rem;
+            }
+            .home .content p{
+                font-size: 1.5rem;
+            }
+            
+        }
+
+        .btn{
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .9rem 3rem;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: rgb(228, 202, 154);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .home{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url(banner.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        section{
+            padding: 2rem 7%;
+        }
+       
+
+        .home .content{
+            max-width: 60rem;
+        }
+
+        .home .content h3{
+            font-size: 4rem;
+            color: #fff;
+            text-transform: uppercase;
+            
+        }
+        .home .content p{
+            font-size: 1.2rem;
+            color: #ffffffab;
+            line-height: 1.8;
+            font-weight: lighter;
+            transform: translate(0,-1.5rem);
+        }
+        .lycf{
+            width: 700px;
+            height: 500px;
+        }
+        
+        .heading span{
+            color: rgb(223, 194, 142);
+            text-transform: uppercase;
+
+        }
+        .Thongtin .row{
+            display: flex;
+            align-items: center;
+            background:rgb(15, 14, 22);
+            flex-wrap: wrap;
+        
+        }
+        .Thongtin .row .hinh{
+           flex:  1 1 25rem;
+        }
+        .Thongtin .row .hinh img{
+            width: 100%;
+        }
+        .Thongtin .row .content{
+           flex:  1 1 55rem;
+           padding: 2rem;
+        }
+
+        .Thongtin .row .content h3{
+           font-size: 2.6rem;
+           color: #fff;
+           
+        }
+        .Thongtin .row .content p{
+           font-size: 1.4rem;
+           color: #ccc;
+           line-height: 1.2;    
+        }
+
+
+        .menu .box-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+        }
+        
+       
